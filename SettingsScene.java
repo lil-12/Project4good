@@ -1,4 +1,4 @@
-//Author: Carter Morgan
+//Author: Carter Morgan, edited for P4 by Lily Davis
 import java.net.Socket;
 
 import javafx.geometry.Pos;
@@ -43,14 +43,15 @@ public class SettingsScene extends SceneBasic {
 			this.cancel();
 		});
 		
+		//brings user to a chat window 
 		Button chatButton = new Button("Chat");
 		chatButton.setOnAction(e->
 		{
 			chat.start(new Stage()); 
 		});
 		buttons.getChildren().addAll(hostButton, portButton,chatButton);
-		buttons.setAlignment(Pos.CENTER);
 		
+		buttons.setAlignment(Pos.CENTER);
 		this.root.getChildren().addAll(hostInput, portInput, buttons, errorMessage);
 	}
 	
