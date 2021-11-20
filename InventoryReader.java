@@ -1,3 +1,8 @@
+/*
+Lily Davis
+Project 4
+Nov 19, 2021
+*/
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,23 +13,24 @@ public class InventoryReader
 {	
 	public static void main(String []args)
 	{
+		
 		HashMap<String,String> inventory = readFile("inventory.txt");
 		for (String key : inventory.keySet()) 
 		{
 			System.out.print("Key = " + key + ", ");
 			System.out.println("Data = " + inventory.get(key));
 		}
-		
 	}
 	
+	//reads an xml file of the things in the stores inventory
 	public static HashMap<String,String> readFile(String filename)
 	{
-		HashMap <String,String> inventory = new HashMap <String,String>();
+		HashMap <String,String> inventory = new HashMap <String,String>();//hashmap returned full of info about items in store
 		try 
 		{
-			File file = new File(filename);
+			File file = new File(filename);//xml file to read from
 			BufferedReader in = new BufferedReader(new FileReader(file));
-			String thisLine = removeTab(in.readLine());
+			String thisLine = removeTab(in.readLine());//next line in xml file
 			while(thisLine!=null)
 			{
 				if(removeTab(thisLine).equals("<PRODUCT>"))
@@ -33,9 +39,9 @@ public class InventoryReader
 					String stockNumber= "";
 					String description="";
 					
-					while(!thisLine.equals("</PRODUCT>"))
+					while(!thisLine.equals("</PRODUCT>"))//reads in a product
 					{
-						if(thisLine.equals("<stockNumber>"))
+						if(thisLine.equals("<stockNumber>"))//reads stock number
 						{
 							thisLine = removeTab(in.readLine());
 							while(!thisLine.equals("</stockNumber>"))
@@ -44,7 +50,7 @@ public class InventoryReader
 								thisLine = removeTab(in.readLine());
 							}
 						}
-						else if(thisLine.equals("<description>"))
+						else if(thisLine.equals("<description>"))//reads description
 						{
 							thisLine = removeTab(in.readLine());
 							while(!thisLine.equals("</description>"))
@@ -71,7 +77,7 @@ public class InventoryReader
 		return inventory;	
 	}
 	
-	private static String removeTab(String string)
+	private static String removeTab(String string)//removes the tabs from the front of a line
 	{
 		if(string == null)
 			return string;
