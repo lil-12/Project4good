@@ -1,3 +1,8 @@
+/*
+Lily Davis
+Project 4
+November 19 2021
+*/
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -20,15 +25,7 @@ import java.net.*;
 
 
 /**
- * Opens a window that can be used for a two-way network chat.
- * The window can "listen" for a connection request on a port
- * that is specified by the user.  It can request a connection
- * to another GUIChat window on a specified computer and port.
- * The window has an input box where the user can enter
- * messages to be sent over the connection.  A connection
- * can be closed by clicking a button in the window or by
- * closing the window.  To test the program, several
- * copies of the program can be run on the same computer.
+ * Opens a window that can be used for a two-way network chat
  */
 public class CustomerChat extends Application {
     
@@ -130,10 +127,8 @@ public class CustomerChat extends Application {
         
         HBox buttonBar = new HBox(5, quitButton, saveButton, clearButton, closeButton);
         buttonBar.setAlignment(Pos.CENTER);
-        /*HBox connectBar = new HBox(5, listenButton, listeningPortInput, connectButton, 
-                                      remoteHostInput, new Label("port:"), remotePortInput);
-       // connectBar.setAlignment(Pos.CENTER);*/
-        VBox topPane = new VBox(8, /*connectBar,*/ buttonBar);
+       
+        VBox topPane = new VBox(8,  buttonBar);
         BorderPane inputBar = new BorderPane(messageInput);
         inputBar.setLeft( new Label("Your Message:"));
         inputBar.setRight(sendButton);
